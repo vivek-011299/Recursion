@@ -1,0 +1,35 @@
+/*
+*
+Reverse a stack using Recursion.
+*
+*/
+
+
+Solution :-
+
+
+void insert(stack<int> &st,int temp)
+{
+    if(st.size()==0)
+    {
+        st.push(temp);
+        return;
+    }
+    int val = st.top();
+    st.pop();
+    insert(st,temp);
+    st.push(val);
+}
+void reverse(stack<int> &st)
+{
+    if(st.size()==1)
+    {
+        return;
+    }
+    int temp = st.top();
+    st.pop();
+    reverse(st);
+    insert(st,temp);
+}
+
+From the main function, Stack with elements is passed with reference  to the reverse function.
