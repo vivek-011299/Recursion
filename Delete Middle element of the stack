@@ -1,0 +1,30 @@
+/*
+*
+Given a stack with push(), pop(), empty() operations, delete the middle of the stack without using any additional data structure.
+Middle: ceil(size_of_stack/2.0)
+*
+*/
+
+Solution :-
+
+void solve(stack<int> &s,int k)
+    {
+        if(s.size()==0 || k==1)
+        {
+            s.pop();
+            return;
+        }
+        int temp=s.top();
+        s.pop();
+        solve(s,k-1);
+        s.push(temp);
+    }
+    void deleteMid(stack<int>&s, int sizeOfStack)
+    {
+        if(s.size()==0)
+        return;
+        int k= (sizeOfStack/2)+1;
+        solve(s,k);
+    }
+    
+    From the main function, deleteMid() function was called.
